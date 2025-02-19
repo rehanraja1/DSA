@@ -2,18 +2,16 @@
 using namespace std;
 int remove_duplicates(int a[], int n)
 {
-    set<int> s;
-    for(int i=0;i<=n-1;i++)
+    int i = 0;
+    for(int j=1;j<=n-1;j++)
     {
-        s.insert(a[i]);
+        if(a[i]!=a[j])
+        {
+            a[i+1]=a[j];
+            i++;
+        }
     }
-    int j=0;
-    for(auto k: s)
-    {
-        a[j]=k;
-        j++;
-    }
-    return s.size();
+    return (i+1);
 }
 int main()
 {
